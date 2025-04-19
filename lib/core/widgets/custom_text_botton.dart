@@ -5,7 +5,7 @@ class CustomTextBotton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPress,
-    this.alignment = Alignment.centerRight,
+    required this.alignment,
   });
 
   final String text;

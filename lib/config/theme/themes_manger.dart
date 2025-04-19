@@ -88,7 +88,19 @@ class ThemeManger {
             fontSize: 24.sp,
             color: ColorsManager.white,
             fontWeight: FontWeight.bold),
-      ));
+      ),
+      appBarTheme: AppBarTheme(
+          backgroundColor: ColorsManager.light,
+          titleTextStyle: GoogleFonts.roboto(
+            textStyle: TextStyle(
+              color: ColorsManager.black1C,
+              fontWeight: FontWeight.w400,
+              fontSize: 20,
+
+            ),
+          )
+      )
+  );
 
   static final ThemeData dark = ThemeData(
     scaffoldBackgroundColor: ColorsManager.dark,
