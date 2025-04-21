@@ -89,7 +89,16 @@ class ThemeManger {
             fontSize: 24.sp,
             color: ColorsManager.white,
             fontWeight: FontWeight.bold),
+        labelMedium: GoogleFonts.inter(
+            fontSize: 20.sp,
+            color: ColorsManager.blue,
+            fontWeight: FontWeight.bold),
+        labelSmall: GoogleFonts.inter(
+            fontSize: 14.sp,
+            color: ColorsManager.black1C,
+            fontWeight: FontWeight.bold),
       ),
+
       appBarTheme: AppBarTheme(
           backgroundColor: ColorsManager.light,
           titleTextStyle: GoogleFonts.roboto(
@@ -116,6 +125,18 @@ class ThemeManger {
             color: ColorsManager.white,
           )),
     ),
+    iconTheme: IconThemeData(
+      color: ColorsManager.white,
+    ),
+
+    cardColor: ColorsManager.light,
+    cardTheme: CardTheme(
+      color: ColorsManager.light,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)
+      ),
+
+    ),
+
   );
 
   static final ThemeData dark = ThemeData(

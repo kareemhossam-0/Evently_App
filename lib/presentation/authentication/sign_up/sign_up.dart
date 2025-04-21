@@ -27,7 +27,7 @@ class _SignInState extends State<SignUp> {
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(child: Image.asset(AssetsManager.logo)),
+            Expanded(child: Image.asset(ImageAssets.logo)),
             Expanded(
               flex: 4,
               child: Padding(
