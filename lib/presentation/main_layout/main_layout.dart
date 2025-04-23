@@ -1,4 +1,5 @@
 import 'package:evently_app/core/resourses/assets_manager.dart';
+import 'package:evently_app/core/resourses/routes_manager.dart';
 import 'package:evently_app/presentation/main_layout/tabs/Love/Love_screen.dart';
 import 'package:evently_app/presentation/main_layout/tabs/home/Home_screen.dart';
 import 'package:evently_app/presentation/main_layout/tabs/map/map_screen.dart';
@@ -77,7 +78,9 @@ class _MainLayoutState extends State<MainLayout> {
 
   Widget buildFab() {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, RoutesManager.createEvent);
+      },
       child: const Icon(Icons.add),
     );
   }

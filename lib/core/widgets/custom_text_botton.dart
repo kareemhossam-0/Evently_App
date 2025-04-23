@@ -6,11 +6,13 @@ class CustomTextBotton extends StatelessWidget {
     required this.text,
     required this.onPress,
     required this.alignment,
+    this.underLine,
   });
 
   final String text;
   final VoidCallback onPress;
   final Alignment alignment;
+  final TextDecoration? underLine;
 
   @override
   Widget build(BuildContext context) {

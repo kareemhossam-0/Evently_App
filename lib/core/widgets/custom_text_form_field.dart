@@ -4,17 +4,21 @@ class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
     required this.labelText,
-    required this.prefixIcon,
+    this.prefixIcon,
     this.isSecure = false,
     this.suffixIcon,
     this.onClick,
+    this.keyboardType = TextInputType.text,
+    this.maxLines,
   });
 
   final String labelText;
-  final IconData prefixIcon;
+  final IconData? prefixIcon;
   final bool isSecure;
   final IconData? suffixIcon;
   final VoidCallback? onClick;
+  final TextInputType keyboardType;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {

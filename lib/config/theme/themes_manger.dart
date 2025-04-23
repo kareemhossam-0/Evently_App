@@ -54,7 +54,7 @@ class ThemeManger {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,
-                  decoration: TextDecoration.underline
+
               ),
             )
         ),
@@ -72,6 +72,7 @@ class ThemeManger {
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w500,
                   color: ColorsManager.white))),
+
       textTheme: TextTheme(
         bodySmall: GoogleFonts.inter(
             fontSize: 16.sp,
@@ -100,6 +101,8 @@ class ThemeManger {
       ),
 
       appBarTheme: AppBarTheme(
+          shadowColor: Colors.transparent,
+          iconTheme: IconThemeData(color: ColorsManager.blue),
           backgroundColor: ColorsManager.light,
           titleTextStyle: GoogleFonts.roboto(
             textStyle: TextStyle(
@@ -110,6 +113,8 @@ class ThemeManger {
             ),
           )
       ),
+
+
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: ColorsManager.blue,
       type: BottomNavigationBarType.fixed,
@@ -126,7 +131,7 @@ class ThemeManger {
           )),
     ),
     iconTheme: IconThemeData(
-      color: ColorsManager.white,
+      color: ColorsManager.black1C,
     ),
 
     cardColor: ColorsManager.light,
