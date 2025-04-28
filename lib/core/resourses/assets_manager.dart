@@ -11,6 +11,7 @@ class ImageAssets {
   static const String workshop = "$base/workshop.png";
   static const String exhibition = "$base/exhibition.png";
   static const String eating = "$base/exhibition.png";
+  static const String route = "$base/profile_image.png";
 }
 
 class SvgAssets {

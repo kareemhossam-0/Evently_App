@@ -32,72 +32,75 @@ class _SignInState extends State<SignUp> {
               flex: 4,
               child: Padding(
                 padding: REdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
 
-                  children: [
-                    SizedBox(height: 24.h),
-                    const CustomTextFormField(
-                      labelText: 'Name',
-                      prefixIcon: Icons.person,
-                      isSecure: false,
-                    ),
-                    SizedBox(height: 16.h),
-                    const CustomTextFormField(
-                      labelText: 'Email',
-                      prefixIcon: Icons.email,
-                      isSecure: false,
-                    ),
-                    SizedBox(height: 16.h),
+                    children: [
+                      SizedBox(height: 24.h),
+                      const CustomTextFormField(
+                        labelText: 'Name',
+                        prefixIcon: Icons.person,
+                        isSecure: false,
+                      ),
+                      SizedBox(height: 16.h),
+                      const CustomTextFormField(
+                        labelText: 'Email',
+                        prefixIcon: Icons.email,
+                        isSecure: false,
+                      ),
+                      SizedBox(height: 16.h),
 
-                    CustomTextFormField(
-                      labelText: 'Password',
-                      prefixIcon: Icons.lock,
-                      isSecure: securePassword,
-                      suffixIcon:
-                      securePassword ? Icons.visibility_off : Icons.visibility,
-                      onClick: () {
-                        _onSecure();
-                      },
-                    ),
-                    SizedBox(height: 16.h),
-                    CustomTextFormField(
-                      labelText: 'Password',
-                      prefixIcon: Icons.lock,
-                      isSecure: secureRePassword,
-                      suffixIcon:
-                      secureRePassword ? Icons.visibility_off : Icons
-                          .visibility,
-                      onClick: () {
-                        _onRESecure();
-                      },
-                    ),
-                    SizedBox(height: 16.h),
-
-
-                    CustomElevatedButton(
-                        title: 'Create Account', onPress: () {}),
-                    SizedBox(height: 16.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Already Have Account ?",
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .bodySmall,
-                        ),
-                        CustomTextBotton(
-                          alignment: Alignment.center,
-                          text: 'Login',
-                          onPress: () {},
-                        ),
-                      ],
-                    ),
+                      CustomTextFormField(
+                        labelText: 'Password',
+                        prefixIcon: Icons.lock,
+                        isSecure: securePassword,
+                        suffixIcon:
+                        securePassword ? Icons.visibility_off : Icons
+                            .visibility,
+                        onClick: () {
+                          _onSecure();
+                        },
+                      ),
+                      SizedBox(height: 16.h),
+                      CustomTextFormField(
+                        labelText: 'Password',
+                        prefixIcon: Icons.lock,
+                        isSecure: secureRePassword,
+                        suffixIcon:
+                        secureRePassword ? Icons.visibility_off : Icons
+                            .visibility,
+                        onClick: () {
+                          _onRESecure();
+                        },
+                      ),
+                      SizedBox(height: 16.h),
 
 
-                  ],
+                      CustomElevatedButton(
+                          title: 'Create Account', onPress: () {}),
+                      SizedBox(height: 16.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Already Have Account ?",
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .bodySmall,
+                          ),
+                          CustomTextBotton(
+                            alignment: Alignment.center,
+                            text: 'Login',
+                            onPress: () {},
+                          ),
+                        ],
+                      ),
+
+
+                    ],
+                  ),
                 ),
               ),
             ),

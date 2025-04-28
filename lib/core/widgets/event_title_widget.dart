@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EventTitleWidget extends StatelessWidget {
@@ -20,7 +19,7 @@ class EventTitleWidget extends StatelessWidget {
               child: Text(title, style: Theme.of(context).textTheme.labelSmall),
             ),
 
-            Icon(Icons.favorite, color: Theme.of(context).primaryColor),
+            Icon(Icons.favorite, color: Theme.of(context).iconTheme.color),
           ],
         ),
       ),

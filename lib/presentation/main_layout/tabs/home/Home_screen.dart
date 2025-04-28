@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           width: double.infinity,
 
           decoration: BoxDecoration(
-            color: ColorsManager.blue,
+            color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(16.r)),
           ),
           child: SafeArea(

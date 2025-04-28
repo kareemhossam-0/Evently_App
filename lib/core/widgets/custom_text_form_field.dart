@@ -26,6 +26,7 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: isSecure,
       decoration: InputDecoration(
         labelText: labelText,
+
         prefixIcon: Icon(prefixIcon),
         suffixIcon:
             suffixIcon != null
