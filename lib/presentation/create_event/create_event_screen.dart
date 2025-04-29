@@ -5,6 +5,7 @@ import 'package:evently_app/core/widgets/custom_tab_bar.dart';
 import 'package:evently_app/core/widgets/custom_text_botton.dart';
 import 'package:evently_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/resourses/colors_manager.dart';
@@ -26,7 +27,7 @@ class CreateEventScreen extends StatelessWidget {
           color: Theme.of(context).appBarTheme.iconTheme?.color,
         ),
         title: Text(
-          'Create Event',
+          AppLocalizations.of(context)!.create_event,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         centerTitle: true,
@@ -53,23 +54,29 @@ class CreateEventScreen extends StatelessWidget {
                 unselectedLabelColor: ColorsManager.blue,
               ),
               SizedBox(height: 10.h),
-              Text("Title", style: Theme.of(context).textTheme.bodySmall),
+              Text(AppLocalizations.of(context)!.title, style: Theme
+                  .of(context)
+                  .textTheme
+                  .bodySmall),
               SizedBox(height: 8.h),
 
               CustomTextFormField(
-                labelText: 'Event Title',
+                labelText: AppLocalizations.of(context)!.event_title,
                 prefixIcon: Icons.edit_note_outlined,
               ),
               SizedBox(height: 8.h),
 
-              Text("Description", style: Theme.of(context).textTheme.bodySmall),
+              Text(AppLocalizations.of(context)!.description, style: Theme
+                  .of(context)
+                  .textTheme
+                  .bodySmall),
 
               SizedBox(height: 8.h),
 
-              const CustomTextFormField(
+              CustomTextFormField(
                 keyboardType: TextInputType.text,
                 maxLines: 4,
-                labelText: 'Event Description',
+                labelText: AppLocalizations.of(context)!.event_description,
               ),
               Row(
                 children: [
@@ -79,14 +86,14 @@ class CreateEventScreen extends StatelessWidget {
 
                   Expanded(
                     child: Text(
-                      "Event Date",
+                      AppLocalizations.of(context)!.event_date,
 
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
 
                   CustomTextBotton(
-                    text: 'Event Date',
+                    text: AppLocalizations.of(context)!.event_date,
                     onPress: () {},
                     alignment: Alignment.centerRight,
                     underLine: TextDecoration.none,
@@ -102,14 +109,15 @@ class CreateEventScreen extends StatelessWidget {
 
                   Expanded(
                     child: Text(
-                      "Event Time",
+                      AppLocalizations.of(context)!.event_time,
 
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
 
                   CustomTextBotton(
-                    text: 'Event Time',
+                    text: AppLocalizations.of(context)!.event_time,
+
                     onPress: () {},
                     alignment: Alignment.centerRight,
                   ),
@@ -118,7 +126,9 @@ class CreateEventScreen extends StatelessWidget {
 
               SizedBox(height: 16.h),
 
-              CustomElevatedButton(title: "Add Event", onPress: () {}),
+              CustomElevatedButton(
+                  title: AppLocalizations.of(context)!.add_event,
+                  onPress: () {}),
             ],
           ),
         ),

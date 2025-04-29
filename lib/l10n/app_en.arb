@@ -1,0 +1,113 @@
+{
+
+
+
+"register": "Register",
+
+
+"email": "Email",
+
+
+"password": "Password",
+
+
+"forget_password": "Forget Password",
+
+
+"login": "Login",
+
+
+"create_account": "Create Account",
+
+
+"dont_have_account": "Don't Have Account",
+
+
+"or": "Or",
+
+
+"login_with_google": "Login With Google",
+
+
+"name": "Name",
+
+
+"re_password": "Re-Password",
+
+
+"already_have_account": "Already Have Account",
+
+
+"reset_password": "Reset Password",
+
+
+"welcome_back": "Welcome Back",
+
+
+"home": "Home",
+
+
+"map": "Map",
+
+
+"favourite": "Favourite",
+
+
+"profile": "profile",
+
+
+"search_for_event": "Search For Event",
+
+
+"language": "Language",
+
+
+"theme": "Theme",
+
+
+"light": "Light",
+
+
+"dark": "Dark",
+
+
+"logout": "LogOut",
+
+
+"create_event": "Create Event",
+
+
+"title": "Title",
+
+
+"description": "Description",
+
+
+"event_title": "Event Title",
+
+
+"event_description": "Event Description",
+
+
+"event_date": "Event Date",
+
+
+"event_time": "Event Time",
+
+
+"add_event": "Add Event",
+
+
+"location": "Location",
+
+
+"choose_location": "Choose Location",
+
+
+"choose_date": "Choose Date",
+
+
+"choose_time": "Choose Time"
+
+
+}

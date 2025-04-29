@@ -3,8 +3,8 @@ import 'package:evently_app/core/widgets/custom_elevated_button.dart';
 import 'package:evently_app/core/widgets/custom_text_botton.dart';
 import 'package:evently_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
@@ -21,7 +21,7 @@ class _SignInState extends State<SignUp> {
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.arrow_back),
-        title: Text('Register'),
+        title: Text(AppLocalizations.of(context)!.register),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -38,21 +38,21 @@ class _SignInState extends State<SignUp> {
 
                     children: [
                       SizedBox(height: 24.h),
-                      const CustomTextFormField(
-                        labelText: 'Name',
+                      CustomTextFormField(
+                        labelText: AppLocalizations.of(context)!.name,
                         prefixIcon: Icons.person,
                         isSecure: false,
                       ),
                       SizedBox(height: 16.h),
-                      const CustomTextFormField(
-                        labelText: 'Email',
+                      CustomTextFormField(
+                        labelText: AppLocalizations.of(context)!.email,
                         prefixIcon: Icons.email,
                         isSecure: false,
                       ),
                       SizedBox(height: 16.h),
 
                       CustomTextFormField(
-                        labelText: 'Password',
+                        labelText: AppLocalizations.of(context)!.password,
                         prefixIcon: Icons.lock,
                         isSecure: securePassword,
                         suffixIcon:
@@ -64,7 +64,7 @@ class _SignInState extends State<SignUp> {
                       ),
                       SizedBox(height: 16.h),
                       CustomTextFormField(
-                        labelText: 'Password',
+                        labelText: AppLocalizations.of(context)!.re_password,
                         prefixIcon: Icons.lock,
                         isSecure: secureRePassword,
                         suffixIcon:
@@ -78,13 +78,14 @@ class _SignInState extends State<SignUp> {
 
 
                       CustomElevatedButton(
-                          title: 'Create Account', onPress: () {}),
+                          title: AppLocalizations.of(context)!.create_account,
+                          onPress: () {}),
                       SizedBox(height: 16.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Already Have Account ?",
+                            AppLocalizations.of(context)!.already_have_account,
                             style: Theme
                                 .of(context)
                                 .textTheme
@@ -92,7 +93,7 @@ class _SignInState extends State<SignUp> {
                           ),
                           CustomTextBotton(
                             alignment: Alignment.center,
-                            text: 'Login',
+                            text: AppLocalizations.of(context)!.login,
                             onPress: () {},
                           ),
                         ],

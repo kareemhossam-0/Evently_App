@@ -5,6 +5,7 @@ import 'package:evently_app/presentation/main_layout/tabs/home/Home_screen.dart'
 import 'package:evently_app/presentation/main_layout/tabs/map/map_screen.dart';
 import 'package:evently_app/presentation/main_layout/tabs/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -44,7 +45,7 @@ class _MainLayoutState extends State<MainLayout> {
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
               width: 25.w, height: 25.h, SvgAssets.unSelectedHome),
-          label: 'Home',
+          label: AppLocalizations.of(context)!.home,
           activeIcon: SvgPicture.asset(
               width: 25.w, height: 25.h, SvgAssets.selectedHome),
         ),
@@ -52,7 +53,7 @@ class _MainLayoutState extends State<MainLayout> {
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
               width: 25.w, height: 25.h, SvgAssets.unSelectedMap),
-          label: 'Map',
+          label: AppLocalizations.of(context)!.map,
           activeIcon: SvgPicture.asset(
               width: 25.w, height: 25.h, SvgAssets.selectedMap),
         ),
@@ -60,7 +61,7 @@ class _MainLayoutState extends State<MainLayout> {
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
               width: 25.w, height: 25.h, SvgAssets.unSelectedFav),
-          label: 'Love',
+          label: AppLocalizations.of(context)!.favourite,
           activeIcon: SvgPicture.asset(
               width: 25.w, height: 25.h, SvgAssets.selectedFav),
         ),
@@ -68,7 +69,7 @@ class _MainLayoutState extends State<MainLayout> {
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
               width: 25.w, height: 25.h, SvgAssets.unSelectedProfile),
-          label: 'Profile',
+          label: AppLocalizations.of(context)!.profile,
           activeIcon: SvgPicture.asset(
               width: 25.w, height: 25.h, SvgAssets.selectedProfile),
         ),

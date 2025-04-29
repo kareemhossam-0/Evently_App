@@ -1,7 +1,9 @@
+import 'package:evently_app/core/resourses/colors_manager.dart';
 import 'package:evently_app/presentation/main_layout/tabs/profile/widgets/custom_drop_down_menu.dart';
 import 'package:evently_app/presentation/main_layout/tabs/profile/widgets/custom_profile_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -32,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             children: [
               CustomDropDownMenu(
-                title: "Language",
+                title: AppLocalizations.of(context)!.language,
 
                 textView: selectedLang,
 
@@ -44,16 +46,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: 16.h),
 
               CustomDropDownMenu(
-                title: "Theme",
+                title: AppLocalizations.of(context)!.theme,
 
                 textView: selectedTheme,
 
-                menuItems: ["Light", "Dark"],
-
-                onChange: _onThemeChange,
+                menuItems: [
+                  AppLocalizations.of(context)!.light,
+                  AppLocalizations.of(context)!.dark,
+                ]onChange: _onThemeChange,
               ),
             ],
           ),
+        ),
+
+        Spacer(flex: 1,),
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: ColorsManager.red,
+                  foregroundColor: ColorsManager.white
+              ),
+              onPressed: () {},
+              child: Row(
+                children: [
+                  SizedBox(width: 16.w,),
+                  Icon(Icons.logout),
+                  SizedBox(width: 8.w,),
+                  Text(AppLocalizations.of(context)!.logout),
+                ],
+              )),
         ),
       ],
     );

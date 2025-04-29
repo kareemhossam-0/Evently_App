@@ -3,6 +3,7 @@ import 'package:evently_app/core/resourses/constant_manager.dart';
 import 'package:evently_app/core/widgets/custom_event.dart';
 import 'package:evently_app/core/widgets/custom_tab_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/data/DM/event_dm.dart';
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "Welcome Back ✨",
+                            AppLocalizations.of(context)!.welcome_back,
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                           Text(
