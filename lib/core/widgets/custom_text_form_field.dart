@@ -10,6 +10,8 @@ class CustomTextFormField extends StatelessWidget {
     this.onClick,
     this.keyboardType = TextInputType.text,
     this.maxLines,
+    this.labelStyle,
+
   });
 
   final String labelText;
@@ -19,15 +21,25 @@ class CustomTextFormField extends StatelessWidget {
   final VoidCallback? onClick;
   final TextInputType keyboardType;
   final int? maxLines;
+  final TextStyle? labelStyle;
+
+
+
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: isSecure,
       decoration: InputDecoration(
-        labelText: labelText,
 
-        prefixIcon: Icon(prefixIcon),
+
+        labelText: labelText,
+        labelStyle: labelStyle,
+
+        prefixIcon: Icon(prefixIcon, color: Theme
+            .of(context)
+            .iconTheme
+            .color,),
         suffixIcon:
             suffixIcon != null
                 ? IconButton(onPressed: onClick, icon: Icon(suffixIcon))
