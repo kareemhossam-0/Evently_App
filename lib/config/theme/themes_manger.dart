@@ -96,13 +96,30 @@ class ThemeManger {
             fontSize: 20.sp,
             color: ColorsManager.blue,
             fontWeight: FontWeight.bold),
+        headlineMedium: GoogleFonts.inter(
+            fontSize: 18.sp,
+            color: ColorsManager.white,
+            fontWeight: FontWeight.bold),
+        headlineSmall: GoogleFonts.inter(
+            fontSize: 14.sp,
+            color: ColorsManager.white,
+            fontWeight: FontWeight.w500),
         labelSmall: GoogleFonts.inter(
             fontSize: 14.sp,
             color: ColorsManager.black1C,
             fontWeight: FontWeight.bold),
+        displayMedium: GoogleFonts.inter(
+            fontSize: 20.sp,
+            color: ColorsManager.black,
+            fontWeight: FontWeight.bold),
+        displaySmall: GoogleFonts.inter(
+            fontSize: 16.sp,
+            color: ColorsManager.blue,
+            fontWeight: FontWeight.w500),
       ),
 
-      appBarTheme: AppBarTheme(
+
+    appBarTheme: AppBarTheme(
           shadowColor: Colors.transparent,
           iconTheme: IconThemeData(color: ColorsManager.blue),
           backgroundColor: ColorsManager.light,

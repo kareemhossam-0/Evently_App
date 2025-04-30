@@ -1,9 +1,11 @@
 import 'package:evently_app/core/resourses/colors_manager.dart';
 import 'package:evently_app/presentation/main_layout/tabs/profile/widgets/custom_drop_down_menu.dart';
 import 'package:evently_app/presentation/main_layout/tabs/profile/widgets/custom_profile_header.dart';
+import 'package:evently_app/provider/config_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -15,9 +17,12 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   String selectedLang = "English";
   String selectedTheme = "Light";
+  late ConfigProvider configProvider;
+
 
   @override
   Widget build(BuildContext context) {
+    configProvider = Provider.of<ConfigProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -36,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               CustomDropDownMenu(
                 title: AppLocalizations.of(context)!.language,
 
-                textView: selectedLang,
+                textView: configProvider.isEnglish ? "English" : "عربي",
 
                 menuItems: ["English", "عربي"],
 
@@ -44,17 +49,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
 
               SizedBox(height: 16.h),
-
               CustomDropDownMenu(
-                title: AppLocalizations.of(context)!.theme,
-
-                textView: selectedTheme,
-
-                menuItems: [
+                  title: AppLocalizations.of(context)!.title,
+                  textView: configProvider.isDark ?
+                  AppLocalizations.of(context)!.dark :
                   AppLocalizations.of(context)!.light,
-                  AppLocalizations.of(context)!.dark,
-                ]onChange: _onThemeChange,
-              ),
+                  menuItems: [
+                    AppLocalizations.of(context)!.light,
+                    AppLocalizations.of(context)!.dark,
+                  ],
+                  onChange: _onThemeChange
+              )
+
             ],
           ),
         ),
@@ -82,14 +88,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _onThemeChange(String? newTheme) {
-    setState(() {
-      selectedTheme = newTheme!;
-    });
+    configProvider.changeAppTheme(
+        newTheme == AppLocalizations.of(context)!.light
+            ? ThemeMode.light
+            : ThemeMode.dark
+    );
   }
 
   void _onLanguageChange(String? newLang) {
-    setState(() {
-      selectedLang = newLang!;
-    });
+    configProvider.changeAppLanguage(
+        newLang == "English" ?
+        "en" : "ar"
+    );
   }
 }
