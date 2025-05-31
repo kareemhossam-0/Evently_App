@@ -3,6 +3,9 @@ import 'package:evently_app/core/data/DM/category_dm.dart';
 import 'assets_manager.dart';
 
 class ConstantManager {
+  static const String weakPassword = 'weak-password';
+  static const String emailInUse = 'email-already-in-use';
+  static const String invalidCredential = 'invalid-credential';
   static List<CategoryDM> categories = const [
     CategoryDM(
       id: "0",
@@ -65,7 +68,7 @@ class ConstantManager {
       iconPath: SvgAssets.book,
     ),
   ];
-  static List<CategoryDM> categoriesWithOutAll = const [
+  static List<CategoryDM> categoriesWithoutAll = const [
     CategoryDM(
       id: "1",
       categoryName: "Sports",

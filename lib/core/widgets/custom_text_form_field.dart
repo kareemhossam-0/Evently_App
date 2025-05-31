@@ -9,11 +9,15 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.onClick,
     this.keyboardType = TextInputType.text,
-    this.maxLines,
+    this.maxLines = 1,
     this.labelStyle,
+    this.controller,
+    this.validator,
 
   });
 
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
   final String labelText;
   final IconData? prefixIcon;
   final bool isSecure;
@@ -26,9 +30,12 @@ class CustomTextFormField extends StatelessWidget {
 
 
 
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
+      controller: controller,
       obscureText: isSecure,
       decoration: InputDecoration(
 

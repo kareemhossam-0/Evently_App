@@ -1,13 +1,13 @@
 import 'package:evently_app/core/resourses/assets_manager.dart';
 import 'package:evently_app/core/resourses/routes_manager.dart';
-import 'package:evently_app/presentation/main_layout/tabs/Love/Love_screen.dart';
+import 'package:evently_app/presentation/main_layout/tabs/Love/favourite_screen .dart';
 import 'package:evently_app/presentation/main_layout/tabs/home/Home_screen.dart';
 import 'package:evently_app/presentation/main_layout/tabs/map/map_screen.dart';
 import 'package:evently_app/presentation/main_layout/tabs/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -18,11 +18,10 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int selectedIndex = 0;
-
   List<Widget> tabs = const [
-    HomeScreen(),
+    Home(),
     MapScreen(),
-    LoveScreen(),
+    Favourite(),
     ProfileScreen(),
   ];
 
@@ -31,62 +30,50 @@ class _MainLayoutState extends State<MainLayout> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: buildFab(),
-      bottomNavigationBar: buildBottomNavigationBar(),
       body: tabs[selectedIndex],
-    );
-  }
-
-  Widget buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      onTap: _onTap,
-      currentIndex: selectedIndex,
-
-      items: [
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-              width: 25.w, height: 25.h, SvgAssets.unSelectedHome),
-          label: AppLocalizations.of(context)!.home,
-          activeIcon: SvgPicture.asset(
-              width: 25.w, height: 25.h, SvgAssets.selectedHome),
-        ),
-
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-              width: 25.w, height: 25.h, SvgAssets.unSelectedMap),
-          label: AppLocalizations.of(context)!.map,
-          activeIcon: SvgPicture.asset(
-              width: 25.w, height: 25.h, SvgAssets.selectedMap),
-        ),
-
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-              width: 25.w, height: 25.h, SvgAssets.unSelectedFav),
-          label: AppLocalizations.of(context)!.favourite,
-          activeIcon: SvgPicture.asset(
-              width: 25.w, height: 25.h, SvgAssets.selectedFav),
-        ),
-
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-              width: 25.w, height: 25.h, SvgAssets.unSelectedProfile),
-          label: AppLocalizations.of(context)!.profile,
-          activeIcon: SvgPicture.asset(
-              width: 25.w, height: 25.h, SvgAssets.selectedProfile),
-        ),
-      ],
+      bottomNavigationBar: buildBottomNavBar(),
     );
   }
 
   Widget buildFab() {
     return FloatingActionButton(
-      onPressed: () {
-        Navigator.pushNamed(context, RoutesManager.createEvent);
-      },
+      onPressed: _goToCreateEventScreen,
       child: const Icon(Icons.add),
     );
   }
 
-  void _onTap(newIndex) {
+  void _goToCreateEventScreen() {
+    Navigator.pushNamed(context, RoutesManager.createEvent);
+  }
+
+  Widget buildBottomNavBar() {
+    return BottomAppBar(
+      notchMargin: 8,
+      child: BottomNavigationBar(
+          currentIndex: selectedIndex,
+          onTap: _onTap,
+          items: [
+            BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(SvgAssets.selectedHome),
+                icon: SvgPicture.asset(SvgAssets.unSelectedHome),
+                label: AppLocalizations.of(context)!.home),
+            BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(SvgAssets.selectedMap),
+                icon: SvgPicture.asset(SvgAssets.unSelectedMap),
+                label: AppLocalizations.of(context)!.map),
+            BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(SvgAssets.selectedFav),
+                icon: SvgPicture.asset(SvgAssets.unSelectedFav),
+                label: AppLocalizations.of(context)!.favourite),
+            BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(SvgAssets.selectedProfile),
+                icon: SvgPicture.asset(SvgAssets.unSelectedProfile),
+                label: AppLocalizations.of(context)!.profile),
+          ]),
+    );
+  }
+
+  void _onTap(int newIndex) {
     setState(() {
       selectedIndex = newIndex;
     });

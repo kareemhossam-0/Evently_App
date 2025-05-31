@@ -1,14 +1,23 @@
-import 'package:evently_app/config/theme/themes_manger.dart';
 import 'package:evently_app/core/resourses/routes_manager.dart';
 import 'package:evently_app/provider/config_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(ChangeNotifierProvider(create: (context) => ConfigProvider(),
-      child: MyApp()));
+import 'config/theme/themes_manger.dart';
+import 'firebase_options.dart';
+import 'l10n/app_localizations.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ConfigProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -23,10 +32,9 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder:
           (context, child) => MaterialApp(
-
             debugShowCheckedModeBanner: false,
             onGenerateRoute: RoutesManager.router,
-            initialRoute: RoutesManager.mainLayout,
+            initialRoute: RoutesManager.signIn,
             theme: ThemeManger.light,
             darkTheme: ThemeManger.dark,
             themeMode: configProvider.currentTheme,

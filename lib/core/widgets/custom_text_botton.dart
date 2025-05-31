@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 
-class CustomTextBotton extends StatelessWidget {
-  const CustomTextBotton({
-    super.key,
-    required this.text,
+class CustomTextButton extends StatelessWidget {
+  const CustomTextButton({super.key,
+    required this.title,
     required this.onPress,
-    required this.alignment,
-    this.underLine,
-  });
+    this.alignment = Alignment.centerRight});
 
-  final String text;
+  final String title;
   final VoidCallback onPress;
   final Alignment alignment;
-  final TextDecoration? underLine;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      style: Theme.of(
-        context,
-      ).textButtonTheme.style?.copyWith(alignment: alignment),
-      onPressed: onPress,
-      child: Text(text),
-    );
+        style: Theme
+            .of(context)
+            .textButtonTheme
+            .style
+            ?.copyWith(
+          alignment: alignment,
+        ),
+        onPressed: onPress,
+        child: Text(title));
   }
 }

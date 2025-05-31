@@ -14,7 +14,7 @@ class ConfigProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeAppLanguage(String newlang) {
+  void changeAppLang(String newlang) {
     if (currentLanguage == newlang) return;
     currentLanguage = newlang;
     notifyListeners();

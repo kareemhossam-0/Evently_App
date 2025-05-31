@@ -154,7 +154,7 @@ class ThemeManger {
     ),
 
     cardColor: ColorsManager.light,
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: ColorsManager.light,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)
       ),
@@ -182,7 +182,7 @@ class ThemeManger {
         color: ColorsManager.blue,
       ),
       cardColor: ColorsManager.blue,
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: ColorsManager.dark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
       ),
