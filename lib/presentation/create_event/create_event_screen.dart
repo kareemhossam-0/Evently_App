@@ -1,6 +1,8 @@
 import 'package:evently_app/core/extentions/date_extentions.dart';
+import 'package:evently_app/core/resourses/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../core/data/DM/category_dm.dart';
 import '../../core/data/DM/event_dm.dart';
@@ -27,6 +29,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
 
   late TextEditingController descriptionController;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  LatLng? location;
 
   @override
   void initState() {
@@ -45,8 +48,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
   }
 
   CategoryDM selectedCategory = ConstantManager.categoriesWithoutAll[0];
+
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
+
 
   @override
   Widget build(BuildContext context) {
@@ -167,6 +172,25 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                   height: 16.h,
                 ),
                 CustomElevatedButton(
+                    title: location == null ? 'Select Location' : "${location!
+                        .latitude},${location!.longitude}",
+                    onPress: () {
+                      Navigator.pushNamed(context, RoutesManager.chosseLocation)
+                          .then(
+                              (value) {
+                            if (value != null) {
+                              location = value as LatLng;
+                              setState(() {
+
+                              });
+                            }
+                          }
+                      );
+                    }),
+                SizedBox(
+                  height: 16.h,
+                ),
+                CustomElevatedButton(
                     title: AppLocalizations.of(context)!.add_event,
                     onPress: _createEvent)
               ],
@@ -194,7 +218,10 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
           title: titleController.text,
           description: descriptionController.text,
           dateTime: selectedDate.copyWith(
-              hour: selectedTime.hour, minute: selectedTime.minute));
+            hour: selectedTime.hour, minute: selectedTime.minute,),
+          lat: location?.latitude,
+          lng: location?.longitude
+      );
       await FirebaseServices.addEventToFireStore(event);
       Navigator.pop(context);
     } catch (exception) {
